@@ -1,5 +1,5 @@
-import { asserts, superoak } from '../../../deps.js';
-import { app } from '../../../app.js';
+// import { asserts, superoak } from '../../../deps.js';
+// import { app } from '../../../app.js';
 
 // Deno.test("GET to helloController retuns <h1></h1>", async () => {
 //     const testClient = await superoak(app);

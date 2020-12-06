@@ -31,3 +31,5 @@ https://lifetrack-project.herokuapp.com/
 Application can be run locally using this command while in the project root folder - last argument is the port number the application should run on:
 deno run --allow-env --allow-read --allow-net --unstable app.js 54321
 
+Database credentials should be set in ".env" file
+

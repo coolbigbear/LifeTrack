@@ -16,18 +16,18 @@ app.use(viewEngine(oakAdapter, ejsEngine, {
 }));
 
 app.use(middleware.errorMiddleware);
+app.use(middleware.accessControl)
 app.use(middleware.serveStaticFilesMiddleware)
 app.use(middleware.log);
-app.use(middleware.accessControl)
 app.use(router.routes());
 
 if (!Deno.env.get('TEST_ENVIRONMENT')) {
-  let port = 7777;
-  if (Deno.args.length > 0) {
-    const lastArgument = Deno.args[Deno.args.length - 1];
-    port = Number(lastArgument);
-  }
-  app.listen({ port: port });
+  // let port = 7777;
+  // if (Deno.args.length > 0) {
+  //   const lastArgument = Deno.args[Deno.args.length - 1];
+  //   port = Number(lastArgument);
+  // }
+  app.listen({ port: 7777 });
 }
       
 export { app };
