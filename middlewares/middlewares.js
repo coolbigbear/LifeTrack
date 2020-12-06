@@ -11,7 +11,6 @@ const log = async ({ request, session }, next) => {
     await next();
 };
 
-
 const errorMiddleware = async (context, next) => {
     try {
         await next();
