@@ -1,0 +1,39 @@
+<%- include('./partials/header.ejs') %>
+<h2>Welcome to Lifetrack</h2>
+<p>Use this website to track:</p>
+<ul>
+    <li>Sleep duration and sleep quality</li>
+    <li>Time spent on sports and exercise</li>
+    <li>Time spent studying</li>
+    <li>Regularity and quality of eating</li>
+    <li>Generic mood</li>
+</ul>
+<p>Tracking is split into <b>morning</b> and <b>evening</b> sections.</p>
+<p>Register and get tracking!</p>
+<h3>Our users average mood</h3>
+<table class="table">
+    <tbody>
+        <tr>
+            <td>
+                <b>Today:</b>
+            </td> 
+            <td>
+                <%= averageMood.today %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Yesterday:</b>
+            </td>
+            <td>
+                <%= averageMood.yesterday %>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h3 style="text-align: center"><%= message %></h3>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<%- include('./partials/footer.ejs') %>

@@ -1,0 +1,31 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">Lifetrack</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/behaviour/reporting">Report behaviour</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/behaviour/summary">Reporting summary</a>
+            </li>
+        </ul>
+        <% if (user) { %>
+            <span class="text-white">Logged in as <%= user.email %> </span>
+            <form class="form-inline my-2 my-lg-0" method="POST" action="/auth/logout">
+                <input class="btn btn-outline-light my-2 mx-2 my-sm-0" type="submit" value="Log out!" />
+            </form>
+        <% } else { %>
+            <form class="form-inline my-2 my-lg-0" method="GET" action="/auth/login">
+                <input class="btn btn-outline-light my-2 mx-2 my-sm-0" type="submit" value="Login" />
+            </form>
+            <form class="form-inline my-2 my-lg-0" method="GET" action="/auth/register">
+                <input class="btn btn-outline-light my-2 my-sm-0" type="submit" value="Register" />
+            </form>
+        <% } %>
+    </div>
+</nav>

@@ -1,0 +1,88 @@
+<%- include('../partials/header.ejs') %>
+<h2>Summary</h2>
+<div class="dropdown-divider"></div>
+
+<h3>Weekly average</h3>
+<form method="POST" action="/behaviour/summary">
+    <div class="form-row">
+        <div class="col">
+            <label class="form-check-label" for="week">Select a week:</label>
+        </div>
+        <div class="col">
+            <input class="form-control" type="week" id="week" name="week" value="<%= week.choice %>">
+        </div>
+        <div class="col">
+            <input class="btn btn-primary" type="submit">
+        </div>
+    </div>
+    <table class="table" style="margin-top: 16px;">
+        <thead>
+            <tr>
+                <th>Sleep duration</th>
+                <th>Sleep quality</th>
+                <th>Time spent on sports and exercise</th>
+                <th>Time spent studying</th>
+                <th>Generic mood</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (week.noData) { %>
+            <tr>
+                <td colspan="5">
+                    <h3 style="text-align: center">No data!</h3>
+                </td>
+            </tr>
+            <% } else { %>
+            <tr>
+                <td><%= week.sleepDurationAverage %></td>
+                <td><%= week.sleepQualityAverage %></td>
+                <td><%= week.sportAverage %></td>
+                <td><%= week.studyingAverage %></td>
+                <td><%= week.moodAverage %></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <h3>Monthly average</h3>
+    <div class="form-row">
+        <div class="col">
+            <label class="form-check-label"for="month">Select a month:</label>
+        </div>
+        <div class="col">
+            <input class="form-control"type="month" id="month" name="month" value="<%= month.choice %>">
+        </div>
+        <div class="col">
+
+            <input class="btn btn-primary" type="submit">
+        </div>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Sleep duration</th>
+            <th>Sleep quality</th>
+            <th>Time spent on sports and exercise</th>
+            <th>Time spent studying</th>
+            <th>Generic mood</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if (month.noData) { %>
+        <tr>
+            <td colspan="5">
+                <h3 style="text-align: center">No data!</h3>
+            </td>
+        </tr>
+        <% } else { %>
+        <tr>
+            <td><%= month.sleepDurationAverage %></td>
+            <td><%= month.sleepQualityAverage %></td>
+            <td><%= month.sportAverage %></td>
+            <td><%= month.studyingAverage %></td>
+            <td><%= month.moodAverage %></td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>
+<%- include('../partials/footer.ejs') %>

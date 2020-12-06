@@ -1,0 +1,39 @@
+<form id="evening-report-form" method="POST" action="/behaviour/reporting/evening">
+
+    <h3>Evening report</h3>
+
+    <%- include('../messages.ejs', { success: success, attribute: 'evening_report'}) %>
+
+    <div class="form-group">
+        <%- include('../messages.ejs', { errors: errors, attribute: 'date'}) %>
+        <label>All fields required</label>
+        <label for="dateField">Date in format (DD/MM/YYYY)</label>
+        <input class="form-control" type="date" name="date" class="datePicker" value="<%= date %>" />
+    </div>
+
+    <div class="form-group">
+        <%- include('../messages.ejs', { errors: errors, attribute: 'sport'}) %>
+        <label for="sportAndExerciseField">Time spent on sports and exercise in hours e.g. (2.5)</label>
+        <input class="form-control" type="number" step="0.01" name="sport" value="<%= sport %>" />
+    </div>
+    <div class="form-group">
+        <%- include('../messages.ejs', { errors: errors, attribute: 'study'}) %>
+        <label for="studyField">Time spent studying in hours e.g. (2.5)</label>
+        <input class="form-control" type="number" step="0.01" name="study" value="<%= study %>" />
+    </div>
+    <div class="form-group">
+        <%- include('../messages.ejs', { errors: errors, attribute: 'eatingQuality'}) %>
+        <label for="moodField">Regularity and quality of eating (value from 1 to 5)</label>
+        <input class="form-control" type="range" name="eatingQuality" min="1" max="5" value="<%= eatingQuality %>" class="slider"
+            id="moodSlider" oninput="sliderValueEatingQuality.value=value">
+        <output id="sliderValueEatingQuality"><%= eatingQuality %></output>
+    </div>
+    <div class="form-group">
+        <%- include('../messages.ejs', { errors: errors, attribute: 'mood'}) %>
+        <label for="moodField">Generic mood (value from 1 to 5)</label>
+        <input class="form-control" type="range" name="mood" min="1" max="5" value="<%= mood %>" class="slider" id="moodSlider"
+            oninput="sliderValueMood.value=value">
+        <output id="sliderValueMood"><%= mood %></output>
+    </div>
+    <input type="submit" value="Report" />
+</form>

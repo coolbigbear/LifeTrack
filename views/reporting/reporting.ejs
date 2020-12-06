@@ -1,0 +1,15 @@
+<%- include('../partials/header.ejs') %>
+<h2>Reporting</h2>
+<%- include('../partials/messages.ejs', { info: info, attribute: 'morning_report_completed_error'}) %>
+<%- include('../partials/messages.ejs', { info: info, attribute: 'evening_report_completed_error'}) %>
+<div class="form-check form-check-inline">
+    <input class="form-check-input"type="radio" name="behaviour-form-radio-button" onclick="displayForm()" <%= morningBehaviourSelected %> />
+    <label class="form-check-label">Morning report</label>
+</div>
+<div class="form-check form-check-inline">
+    <input class="form-check-input"type="radio" name="behaviour-form-radio-button" onclick="displayForm()" <%= eveningBehaviourSelected %> />
+    <label class="form-check-label">Evening report</label>
+</div>
+<%- include('../partials/forms/morning-report-form.ejs') %>
+<%- include('../partials/forms/evening-report-form.ejs') %>
+<%- include('../partials/footer.ejs') %>
