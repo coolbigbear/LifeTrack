@@ -6,9 +6,6 @@ CREATE TABLE users (
   password CHAR(60) NOT NULL
 );
 
-// Haven't done
-CREATE UNIQUE INDEX ON users((lower(email)));
-
 CREATE TABLE morning_report (
   id SERIAL PRIMARY KEY,
   date TEXT NOT NULL,
@@ -27,3 +24,10 @@ CREATE TABLE evening_report (
   mood INTEGER NOT NULL,
   user_id INTEGER REFERENCES users(id) NOT NULL
 );
+
+Application is available at:
+https://lifetrack-project.herokuapp.com/
+
+Application can be run locally using this command while in the project root folder - last argument is the port number the application should run on:
+deno run --allow-env --allow-read --allow-net --unstable app.js 54321
+

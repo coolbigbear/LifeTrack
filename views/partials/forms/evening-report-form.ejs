@@ -4,9 +4,10 @@
 
     <%- include('../messages.ejs', { success: success, attribute: 'evening_report'}) %>
 
+    <div class="alert alert-warning">All fields required</div>
+
     <div class="form-group">
         <%- include('../messages.ejs', { errors: errors, attribute: 'date'}) %>
-        <label>All fields required</label>
         <label for="dateField">Date in format (DD/MM/YYYY)</label>
         <input class="form-control" type="date" name="date" class="datePicker" value="<%= date %>" />
     </div>
