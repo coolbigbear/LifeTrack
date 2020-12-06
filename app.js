@@ -22,12 +22,12 @@ app.use(middleware.log);
 app.use(router.routes());
 
 if (!Deno.env.get('TEST_ENVIRONMENT')) {
-  // let port = 7777;
-  // if (Deno.args.length > 0) {
-  //   const lastArgument = Deno.args[Deno.args.length - 1];
-  //   port = Number(lastArgument);
-  // }
-  app.listen({ port: 7777 });
+  let port = 7777;
+  if (Deno.args.length > 0) {
+    const lastArgument = Deno.args[Deno.args.length - 1];
+    port = Number(lastArgument);
+  }
+  app.listen({ port: port });
 }
       
 export { app };
