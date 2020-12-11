@@ -65,6 +65,8 @@ Second run of tests will make all tests pass as first run creates neccessery dat
 
 EXTRA NOTES:
 
+When creating an account, if the account was created succesfully you'll be redirected to the login screen.
+
 The reporting behaviour section has both the morning and evening forms on the same page. 
 They are hidden according to the radio buttons clicked by the user. This is done using a static javascript file.
 
