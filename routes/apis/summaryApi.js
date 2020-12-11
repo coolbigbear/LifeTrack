@@ -10,7 +10,7 @@ const handle7Days = async (context) => {
 }
 const handle1Day = async ({ response, params }) => {
     var date = new Date(`${params.year}-${params.month}-${params.day}`)
-    console.log(date)
+    // console.log(date)
     if (date == "Invalid Date") {
         response.status = 400
         response.body = { error: "Invalid Date"}
@@ -21,7 +21,7 @@ const handle1Day = async ({ response, params }) => {
 }
 
 const getAllDataForPast7DaysForAllUsers = async (date) => {
-    console.log(date)
+    // console.log(date)
     const data = {
         sleepQualityAverage: await weekBehaviourService.getAverageSleepQualityForPast7DaysFromDayForAllUsers(date),
         sleepDurationAverage: await weekBehaviourService.getAverageSleepDurationForPast7DaysFromDayForAllUsers(date),
@@ -30,7 +30,7 @@ const getAllDataForPast7DaysForAllUsers = async (date) => {
         moodAverage: await weekBehaviourService.getAverageMoodForPast7DaysFromDayForAllUsers(date)
     }
     var summary = await summariseData(data);
-    console.log(summary)
+    // console.log(summary)
 
     return summary
 };
@@ -45,13 +45,13 @@ const getAllDataForDateForAllUsers = async (date) => {
     }
 
     var summary = await summariseData(data);
-    console.log(summary)
+    // console.log(summary)
 
     return summary
 };
 
 const summariseData = async (summary) => {
-    console.log(summary)
+    // console.log(summary)
     var data = {
         sleepDurationAverage: Number(summary.sleepDurationAverage.avg).toFixed(2),
         sportAverage: Number(summary.sportAverage.avg).toFixed(2),
@@ -61,7 +61,7 @@ const summariseData = async (summary) => {
     }
 
     if (await checkIfAllZeros(data)) {
-        console.log("No data")
+        // console.log("No data")
         data = {
             summary: {
                 message: "No data"

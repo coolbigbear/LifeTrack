@@ -8,11 +8,11 @@ const getUserByEmail = async (email) => {
     const res = await executeQuery("SELECT * FROM users WHERE email = ($1);", email);
     // console.log(res)
     if (res && res.rowCount > 0) {
-        console.log("User found")
+        // console.log("User found")
         return res.rowsOfObjects()[0];
     }
     
-    console.log("User not found")
+    // console.log("User not found")
     return null;
 }
 
@@ -20,11 +20,11 @@ const getUserById = async (id) => {
     const res = await executeQuery("SELECT * FROM users WHERE id = ($1);", id);
     // console.log(res)
     if (res && res.rowCount > 0) {
-        console.log("User found")
+        // console.log("User found")
         return res.rowsOfObjects()[0];
     }
 
-    console.log("User not found")
+    // console.log("User not found")
     return null;
 }
 

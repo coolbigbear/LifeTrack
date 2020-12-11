@@ -5,10 +5,10 @@ const addMorningBehaviour = async (report) => {
     const res = await getReportForDay(report.user_id, report.date, "morning_report")
     // console.log(res)
     if (res && res.rowCount > 0) { // Already submitted today, need to update instead of insert new
-        console.log("Morning report submitted updating")
+        // console.log("Morning report submitted updating")
         await updateMorningBehaviourForDay(report)
     } else {
-        console.log("Gen new morining report")
+        // console.log("Gen new morining report")
         await insertMorningBehaviour(report)
     }
 }

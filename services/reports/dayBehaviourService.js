@@ -6,8 +6,8 @@ const getAverageMoodForDay = async (date) => {
 }
 
 const getReportForDay = async (id, date, table) => {
-    console.log(id)
-    console.log(date)
+    // console.log(id)
+    // console.log(date)
     if (table === "morning_report") {
         return await executeQuery("SELECT * FROM morning_report WHERE user_id = ($1) AND date = ($2);", id, date);
     } else if (table === "evening_report") {
@@ -26,12 +26,12 @@ const getTodaysBehaviours = async (user) => {
     }
 
     if (morning_report && morning_report.rowCount > 0) {
-        console.log("Morning behaviour found")
+        // console.log("Morning behaviour found")
         data.morning_behaviour = morning_report.rowsOfObjects()[0]
     }
 
     if (evening_report && evening_report.rowCount > 0) {
-        console.log("Evening behaviour found")
+        // console.log("Evening behaviour found")
         data.evening_behaviour = evening_report.rowsOfObjects()[0]
     }
 

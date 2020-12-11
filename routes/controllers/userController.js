@@ -12,15 +12,15 @@ const showRegister = async (context) => {
 
 const verifyLogin = async (context) => {
     const data = await getData(context);
-    console.log(data)
+    // console.log(data)
     const [passes, errors] = await validate(data, loginValidationRules);
     if (!passes) {
         data.errors = errors;
-        console.log(data)
+        // console.log(data)
         context.render('./user/login.ejs', data);
     } else {
         const user = await getUserByEmail(data.Email)
-        console.log(user)
+        // console.log(user)
 
         const errorList = {
             errors: { General: { userNotFound: "Invalid email or password" } }
@@ -32,7 +32,7 @@ const verifyLogin = async (context) => {
         } else {
             let result = await bcrypt.compare(data.Password, user.password);
             if (!result) {
-                console.log("Password didn't match")
+                // console.log("Password didn't match")
                 data.errors = errorList.errors
                 context.render('./user/login.ejs', data);
             } else {
@@ -52,11 +52,11 @@ const verifyRegister = async (context) => {
     const [passes, errors] = await validate(data, registerValidationRules);
     if (!passes) {
         data.errors = errors;
-        console.log(data)
+        // console.log(data)
         context.render('./user/register.ejs', data);
     } else {
         const user = await getUserByEmail(data.Email)
-        console.log(user)
+        // console.log(user)
 
         const errorList = {
             errors: { General: { userNotFound: "Email is already taken!" } }
@@ -64,7 +64,7 @@ const verifyRegister = async (context) => {
 
         if (user) {
             data.errors = errorList.errors
-            console.log(data)
+            // console.log(data)
             context.render('./user/register.ejs', data);
         } else {
             const hash = await bcrypt.hash(data.Password);
@@ -96,7 +96,7 @@ const getData = async (context) => {
     if (context.request.method == "POST") {
         const body = context.request.body();
         const params = await body.value;
-        console.log(params)
+        // console.log(params)
         data.Email = params.get("email");
         data.Password = params.get("password");
     }

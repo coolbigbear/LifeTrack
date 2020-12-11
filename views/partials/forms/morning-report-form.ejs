@@ -29,9 +29,9 @@
     <div class="form-group">
         <%- include('../messages.ejs', { errors: errors, attribute: 'mood'}) %>
         <label for="moodField">Generic mood (value from 1 to 5)</label>
-            <input class="form-control" type="range" name="mood" min="1" max="5" value="<%= mood %>" class="slider"
-                oninput="sliderValueMood.value=value">
-            <output id="sliderValueMood"><%= mood %></output>
+        <input class="form-control" type="range" name="mood" min="1" max="5" value="<%= mood %>" class="slider"
+            oninput="sliderValueMoodMorning.value=value">
+        <output id="sliderValueMoodMorning"><%= mood %></output>
     </div>
     <input type="submit" class="btn btn-primary" value="Report" />
 </form>

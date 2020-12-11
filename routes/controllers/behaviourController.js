@@ -12,7 +12,7 @@ const showReporting = async (context) => {
 
 const verifyMorningReport = async (context) => {
     var data = await getData(context);
-    console.log(data)
+    // console.log(data)
     const [passes, errors] = await validate(data, morningValidationRules, morningErrorMessages);
     if (!passes) {
         data.errors = { ...data.errors, ...errors };
@@ -26,13 +26,13 @@ const verifyMorningReport = async (context) => {
         
         data = await getCleanData(context)
         const errorList = { morning_report: { reportAdded: "Report submitted" } }
-        console.log("This is data", data)
+        // console.log("This is data", data)
         
         data.success = { ...data.success, ...errorList };
         data.morningBehaviourSelected = "checked"
         data.eveningBehaviourSelected = "unchecked"
         globalData = data;
-        console.log("This is global data", globalData)
+        // console.log("This is global data", globalData)
         context.response.redirect('/behaviour/reporting')
     }
 };
@@ -82,7 +82,7 @@ const checkIfTodaysReportsCompleted = async ({ session }) => {
             errorList = { morning_report_completed_error, evening_report_completed_error }
         }
     }
-    console.log(errorList)
+    // console.log(errorList)
     return errorList;
 }
 
@@ -110,11 +110,11 @@ const getData = async (context) => {
     var data = await getCleanData(context)
 
     if (globalData) {
-        console.log("Using global data")
+        // console.log("Using global data")
         data = globalData
     }
     if (context.request.method == "POST") {
-        console.log("Reading form data")
+        // console.log("Reading form data")
         const body = context.request.body();
         const params = await body.value;
         if (context.request.url.pathname.includes("morning")) {
@@ -151,7 +151,7 @@ const getData = async (context) => {
             data.mood = Number(params.get("mood"));
         }
     }
-    console.log(data)
+    // console.log(data)
     return data;
 };
 

@@ -1,6 +1,6 @@
 import { asserts, superoak } from '../../../deps.js';
 import { app } from '../../../app.js';
-import { showSummary } from '../../../routes/controllers/summaryController.js';
+import { showReporting } from '../../../routes/controllers/behaviourController.js';
 
 let usedParameterValue1 = null;
 let usedParameterValue2 = null;
@@ -24,10 +24,10 @@ const myContextGET = {
 }
 
 Deno.test({
-    name: "GET to /behaviour/summary retuns login page when no credentials are given",
+    name: "GET to /behaviour/reporting retuns login page when no credentials are given",
     async fn() {
         const testClient = await superoak(app);
-        let response = await testClient.get("/behaviour/summary")
+        let response = await testClient.get("/behaviour/reporting")
         let body = response.text
         asserts.assert(body.includes("<h2>Login!</h2>"))
     },
@@ -36,11 +36,12 @@ Deno.test({
 });
 
 Deno.test({
-    name: "GET to /behaviour/summary tries to render reporting summary ejs file",
+    name: "GET to /behaviour/reporting tries to render behaviour reporting ejs file",
     async fn() {
-        await showSummary(myContextGET)
-        asserts.assert(usedParameterValue1 == "./reporting/summary.ejs")
+        await showReporting(myContextGET)
+        asserts.assert(usedParameterValue1 == "./reporting/reporting.ejs")
     },
     sanitizeResources: false,
     sanitizeOps: false
 });
+

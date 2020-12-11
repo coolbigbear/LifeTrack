@@ -41,8 +41,8 @@ const getData = async (context) => {
 
         data.month = await getMonthAverages(startOfMonth, endOfMonth, data.user)
 
-        console.log(params.get('week'))
-        console.log(params.get('month'))
+        // console.log(params.get('week'))
+        // console.log(params.get('month'))
     }
 
     return data;
@@ -68,7 +68,7 @@ const getWeekAverages = async (date, user) => {
     if (await checkIfAllZeros(week)) {
         week.noData = true;
     }
-    console.log(week)
+    // console.log(week)
 
     return week
 }
@@ -94,7 +94,7 @@ const getMonthAverages = async (startOfMonth, endOfMonth, user) => {
     if (await checkIfAllZeros(month)) {
         month.noData = true;
     }
-    console.log(month)
+    // console.log(month)
 
     return month
 }
@@ -117,7 +117,7 @@ const checkIfAllZeros = async (data) => {
     if (data.moodAverage != "0.00") {
         result = false;
     }
-    console.log(result)
+    // console.log(result)
 
     return result;
 }

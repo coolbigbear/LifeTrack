@@ -16,7 +16,7 @@ const getData = async (context) => {
 
 const calculateMessage = async (averageMood) => {
     if (averageMood.today > averageMood.yesterday) {
-        return "Things are looking bright today!"
+        return "Things are looking bright today :D"
     } else {
         return "Things are looking gloomy today :("
     }

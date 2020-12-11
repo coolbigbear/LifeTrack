@@ -7,7 +7,6 @@ const app = new Application();
 const session = new Session({ framework: "oak" });
 await session.init();
 
-app.use(session.use()(session));
 
 const ejsEngine = engineFactory.getEjsEngine();
 const oakAdapter = adapterFactory.getOakAdapter();
@@ -16,6 +15,7 @@ app.use(viewEngine(oakAdapter, ejsEngine, {
 }));
 
 app.use(middleware.errorMiddleware);
+app.use(session.use()(session));
 app.use(middleware.accessControl)
 app.use(middleware.serveStaticFilesMiddleware)
 app.use(middleware.log);
@@ -27,6 +27,7 @@ if (!Deno.env.get('TEST_ENVIRONMENT')) {
     const lastArgument = Deno.args[Deno.args.length - 1];
     port = Number(lastArgument);
   }
+  console.log("App listening on port: ", port)
   app.listen({ port: port });
 }
       
