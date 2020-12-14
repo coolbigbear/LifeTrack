@@ -44,4 +44,5 @@ const accessControl = async ({ response, request, session }, next) => {
     }
 }
 
+
 export { log, errorMiddleware, accessControl, serveStaticFilesMiddleware }
